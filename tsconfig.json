@@ -29,7 +29,6 @@
       /* Additional types */
       "@types/prismjs"
     ],
-    "typeRoots": ["./@types"]
   },
   "exclude": ["node_modules"]
 }

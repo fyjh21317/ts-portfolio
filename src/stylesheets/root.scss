@@ -1,7 +1,7 @@
-@import "body.scss";
-@import "scrollbar.scss";
-@import "transitions.scss";
+@use "body.scss";
+@use "scrollbar.scss";
+@use "transitions.scss";
 
 /* Modules */
-@import "./modules/tippy.scss";
-@import "./modules/disqus.scss";
+@use "./modules/tippy.scss";
+@use "./modules/disqus.scss";
