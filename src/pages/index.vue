@@ -28,6 +28,8 @@ interface ExperienceObject {
 export default Vue.extend({
   data() {
     return {
+      animateText: false,
+      notationColor: "#ECE8C5",
       showModal: false,
       showExtra: {
         jobs: false,
@@ -178,38 +180,39 @@ export default Vue.extend({
       },
       skills: [
         {
-          title: "Development",
+          title: "Programming Languages",
+          items: ["JavaScript", "TypeScript", "C#", "Swift", "Dart"],
+        },
+        {
+          title: "Frontend Development",
+          // Tailwind CSS
           items: [
-            "TypeScript",
             "Vue.js",
-            "React.js",
-            "HTML5",
-            "Tailwind CSS",
-            "Node.js",
+            "Nuxt.js",
+            "Vuetify",
             "Sass",
+            "Vite",
+            "Webpack",
+            "ECharts",
           ],
         },
         {
-          title: "Apps",
-          items: [
-            {
-              title: "VS Code",
-              iconPack: "IconBrand",
-            },
-            {
-              title: "Raycast",
-              image: "https://i.imgur.com/NBc0C4j.png",
-            },
-            {
-              title: "Figma",
-            },
-          ],
+          title: "Mobile App Development",
+          items: ["SwiftUI", "Flutter"],
+        },
+        {
+          title: "Interactive Tools",
+          items: ["Unity", "Figma"],
         },
         {
           title: "Services",
           items: [
             {
               title: "GitHub",
+              iconPack: "IconBrand",
+            },
+            {
+              title: "GitLab",
               iconPack: "IconBrand",
             },
             {
@@ -238,6 +241,11 @@ export default Vue.extend({
         hash: id,
       })
     },
+    textAnimationInit() {
+      setTimeout(() => {
+        this.animateText = true
+      }, 800)
+    },
   },
 })
 </script>
@@ -254,23 +262,43 @@ export default Vue.extend({
               class="font-semibold text-center text-lg md:(text-xl text-left) text-black/50 dark:text-white/50"
             >
               Hi, I am
-              <span class="text-black/90 dark:text-white/90"
-                >Abdulbaki Dursun</span
-              >
+              <span class="text-black/90 dark:text-white/90">Freya Liao</span>
             </h1>
 
             <h1
               class="font-semibold text-center text-4xl md:(text-6xl text-left) text-black/90 leading-normal dark:text-white/90"
             >
-              Full-stack web developer
+              Full-stack Web Developer
             </h1>
+
+            <h3
+              class="font-semibold justify-center text-xl items-center transition-opacity duration-1000 flex gap-2 text-center md:(text-2xl text-left justify-start) text-[#fde047] dark:text-dark-200"
+              :class="animateText ? 'opacity-100' : 'opacity-30'"
+            >
+              <div
+                class="flex flex-col items-end text-[10px] text-black/50 dark:text-white/50"
+              >
+                <span>currently</span>
+              </div>
+
+              <RoughNotation
+                :is-show="animateText"
+                type="highlight"
+                @init="textAnimationInit"
+                :color="notationColor"
+              >
+                <span class="text-black/90 dark:text-white/90 px-2">
+                  Beginner in Cross-Platform Mobile Apps
+                </span>
+              </RoughNotation>
+            </h3>
           </div>
 
           <div
             class="flex items-center justify-center md:justify-start gap-x-3 gap-y-2 flex-wrap"
           >
             <Button
-              v-for="item in ['TypeScript', 'Vue.js', 'React.js']"
+              v-for="item in ['Vue.js', 'JavaScript', 'TypeScript']"
               :key="item"
               class="inline-block"
             >
@@ -391,7 +419,7 @@ export default Vue.extend({
           </h5>
 
           <div
-            class="grid md:grid-cols-3 grid-cols-1 lg:grid-cols-4 gap-x-2 gap-y-2"
+            class="grid md:grid-cols-3 grid-cols-1 lg:grid-cols-5 gap-x-2 gap-y-2"
           >
             <CardSkill
               v-for="(skill, index) in category.items"
