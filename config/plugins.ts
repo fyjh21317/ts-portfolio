@@ -13,6 +13,10 @@ const Plugins: NuxtOptionsPlugin[] = [
     mode: "client",
   },
   {
+    src: "@/plugins/Notation",
+    mode: "client",
+  },
+  {
     src: "@/plugins/Firebase",
     mode: "client",
   },
