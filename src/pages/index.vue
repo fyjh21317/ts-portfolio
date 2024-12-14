@@ -104,29 +104,16 @@ export default Vue.extend({
         ],
         education: [
           {
-            title: "Muş Alparslan University",
-            url: "http://alparslan.edu.tr/",
-            position: "English Language Teaching",
-            date: "2020-2024",
+            title: "National Taiwan University",
+            url: "https://www.ntu.edu.tw/",
+            position: "Master of Information Management",
+            date: "2020-2022",
           },
           {
-            title: "Goce Delchev University",
-            url: "https://www.ugd.edu.mk/",
-            position: "Erasmus+ Student",
-            date: "2021-2022",
-          },
-          {
-            title: "Rotosis Robotics",
-            url: "https://www.rotosis.com/",
-            position: "Intern",
-            date: "2017-2018",
-            isHidden: true,
-          },
-          {
-            title: "Adil Karaağaç MTAL",
-            url: "https://akatl.meb.k12.tr/",
-            position: "Automation Systems",
-            date: "2014-2018",
+            title: "National Central University",
+            url: "https://www.ncu.edu.tw/tw/index.html",
+            position: "Bachelor of Information Management",
+            date: "2016-2020",
           },
         ],
       } as ExperienceObject,
@@ -383,19 +370,11 @@ export default Vue.extend({
       <div>
         <div class="flex items-center gap-4 justify-between">
           <Title>Education</Title>
-          <button
-            type="button"
-            class="text-black/50 text-sm hover:underline dark:text-white/30"
-            @click="showExtra.education = !showExtra.education"
-          >
-            {{ showExtra.education ? "show less" : "show more" }}
-          </button>
         </div>
 
         <div class="mt-4 grid gap-2">
           <CardExperience
             v-for="(experience, index) in experiences.education"
-            v-show="experience.isHidden ? showExtra.education : true"
             :key="`experience-education-${index}`"
             :title="experience.title"
             :url="experience.url"
