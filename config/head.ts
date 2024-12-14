@@ -82,7 +82,7 @@ const Head: NuxtOptionsHead = {
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "/src/static/assets/icons/icon.svg",
+      href: "/assets/icons/icon.svg",
     },
     {
       rel: "search",
