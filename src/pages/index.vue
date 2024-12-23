@@ -88,32 +88,12 @@ export default Vue.extend({
         ],
       } as ExperienceObject,
       cards: {
-        me: [
+        work: [
           {
-            title: "Repositories",
+            title: "Research",
             description:
-              "Want to see and/or contribute to my code and public repositories?",
-            href: "/me/repos",
-          },
-          {
-            title: "Songs",
-            description:
-              "Trust your taste? Compare your favourite songs and artists with mine!",
-            href: "/me/songs",
-          },
-          {
-            title: "Contact",
-            description:
-              "Need help with anything? Want to get in touch? Send me a message!",
-            href: "/me/contact",
-          },
-        ],
-        pages: [
-          {
-            title: "Blog",
-            description:
-              "My Turkish stories about real-life, programming, development and more!",
-            href: "/blog",
+              "Sharing findings and innovative ideas from my research journey.",
+            href: "/research",
           },
           {
             title: "Projects",
@@ -121,17 +101,24 @@ export default Vue.extend({
               "My projects and contributions to the open-source community.",
             href: "/projects",
           },
+        ],
+        me: [
           {
-            title: "Daily Songs",
+            title: "Blog",
+            description: "Stories about coding, food, travel, and self-growth.",
+            href: "/blog",
+          },
+          {
+            title: "Daily Song",
             description:
               "Fresh, cool and great song recommendations from me each day!",
             href: "/daily",
           },
           {
-            title: "Donate",
+            title: "Contact",
             description:
-              "Want to support me and my projects so that I can create better stuff in the future?",
-            href: "/donate",
+              "Need help with anything? Want to get in touch? Send me a message!",
+            href: "/me/contact",
           },
         ],
       },
@@ -280,13 +267,13 @@ export default Vue.extend({
       </div>
     </header>
 
-    <section id="pages">
-      <Title>Pages</Title>
+    <section id="work">
+      <Title>Work</Title>
 
       <div class="mt-4 grid gap-4 md:grid-cols-2">
         <Card
-          v-for="(card, index) in cards.pages"
-          :key="`card-p-${index}`"
+          v-for="(card, index) in cards.work"
+          :key="`card-w-${index}`"
           :title="card.title"
           :href="card.href"
         >
@@ -296,7 +283,7 @@ export default Vue.extend({
     </section>
 
     <section id="me">
-      <Title>Me</Title>
+      <Title>About Me</Title>
 
       <div class="mt-4 grid gap-4 md:grid-cols-2">
         <Card

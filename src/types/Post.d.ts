@@ -35,7 +35,7 @@ export interface Post {
   path?: string
   extension?: string
   createdAt?: string
-  updatedAt?: Date
+  updatedAt?: string | Date
   tags?: string[]
   indicatorsHidden?: boolean
 }

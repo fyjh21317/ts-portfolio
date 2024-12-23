@@ -21,8 +21,7 @@ export default Vue.extend({
     this.posts = posts
   },
   head() {
-    let string = "eggsy.xyz"
-    if (this.routeIsBlog) string = "eggsy.xyz - blog"
+    let string = "freya.lcf"
 
     return {
       titleTemplate: `%s - ${string}`,
@@ -52,6 +51,16 @@ export default Vue.extend({
         },
         {
           section: "Navigation",
+          text: "Projects",
+          icon: "IconCog",
+          action: () => {
+            this.$router.push("/projects")
+          },
+        },
+
+        /* Me */
+        {
+          section: "Me",
           text: "Blog",
           tag: "Search a blog post",
           icon: "IconDocument",
@@ -65,7 +74,7 @@ export default Vue.extend({
               },
             },
             ...this.posts.map((post: Post) => ({
-              text: post.title,
+              text: post.title || "Untitled",
               icon: "IconDocument",
               action: () => {
                 this.$router.push(`/blog/${post.slug}`)
@@ -74,45 +83,11 @@ export default Vue.extend({
           ],
         },
         {
-          section: "Navigation",
-          text: "Projects",
-          icon: "IconCog",
-          action: () => {
-            this.$router.push("/projects")
-          },
-        },
-        {
-          section: "Navigation",
-          text: "Donate",
-          icon: "IconDollar",
-          action: () => {
-            this.$router.push("/donate")
-          },
-        },
-        {
-          section: "Navigation",
+          section: "Me",
           text: "Daily Song",
           icon: "IconMusicNote",
           action: () => {
             this.$router.push("/daily")
-          },
-        },
-
-        /* Me */
-        {
-          section: "Me",
-          text: "Repositories",
-          icon: "IconBranch",
-          action: () => {
-            this.$router.push("/me/repos")
-          },
-        },
-        {
-          section: "Me",
-          text: "Songs",
-          icon: "IconStar",
-          action: () => {
-            this.$router.push("/me/songs")
           },
         },
         {
